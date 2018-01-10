@@ -54,5 +54,6 @@ public class Streams {
 			.mapToInt(c -> c.getAmountOfStudents()).sum();
 	
 		System.out.println(sum);
+		
 	}
 }
