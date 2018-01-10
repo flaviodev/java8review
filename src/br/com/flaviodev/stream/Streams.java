@@ -77,9 +77,8 @@ public class Streams {
 		courses.forEach(c -> System.out.println(c.getName()));
 		
 		// collect a map from a stream
-		Map<String, Integer> map = courses.stream()
-				.collect(Collectors.toMap(c -> c.getName(), c -> c.getAmountOfStudents()));
-		
-		System.out.println(map);
+		courses.stream()
+				.collect(Collectors.toMap(c -> c.getName(), c -> c.getAmountOfStudents()))
+				.forEach((name, students) -> System.out.println("the course " + name + " has " + students + " students"));
 	}
 }
