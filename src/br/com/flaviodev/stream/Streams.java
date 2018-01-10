@@ -9,6 +9,8 @@ class Course {
 	private String name;
 	private int amountOfStudents;
 
+	public Course() {}
+	
 	public Course(String name, int amountOfStudents) {
 		this.name = name;
 		this.amountOfStudents = amountOfStudents;
@@ -54,6 +56,18 @@ public class Streams {
 			.mapToInt(c -> c.getAmountOfStudents()).sum();
 	
 		System.out.println(sum);
+		
+		// Using Optional
+		// using if present (null safe)
+		courses.stream()
+			.filter(c -> c.getAmountOfStudents() > 90)
+			.findAny()
+			.ifPresent(c -> System.out.println(c.getName()));
+		
+		courses.stream()
+			.filter(c -> c.getAmountOfStudents() > 90)
+			.mapToInt(c -> c.getAmountOfStudents())
+			.average().ifPresent(System.out::println);
 		
 	}
 }
