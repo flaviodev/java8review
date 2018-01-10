@@ -80,5 +80,11 @@ public class Streams {
 		courses.stream()
 				.collect(Collectors.toMap(c -> c.getName(), c -> c.getAmountOfStudents()))
 				.forEach((name, students) -> System.out.println("the course " + name + " has " + students + " students"));
+		
+		// using parallel stream 
+		courses.parallelStream()
+			.collect(Collectors.toMap(c -> c.getName(), c -> c.getAmountOfStudents()))
+			.forEach((name, students) -> System.out.println("the course " + name + " has " + students + " students"));
+		
 	}
 }
