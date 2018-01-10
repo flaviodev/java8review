@@ -3,6 +3,7 @@ package br.com.flaviodev.stream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -75,5 +76,10 @@ public class Streams {
 		courses = courses.stream().filter(c -> c.getAmountOfStudents() > 90).collect(Collectors.toList());
 		courses.forEach(c -> System.out.println(c.getName()));
 		
+		// collect a map from a stream
+		Map<String, Integer> map = courses.stream()
+				.collect(Collectors.toMap(c -> c.getName(), c -> c.getAmountOfStudents()));
+		
+		System.out.println(map);
 	}
 }
