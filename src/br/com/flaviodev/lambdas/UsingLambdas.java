@@ -26,7 +26,7 @@ public class UsingLambdas {
 		// functional interfaces has just one method and can be used on lambda expression
 
 		// sorting using lambda
-		words.sort((w1, w2) -> Integer.compare(w1.length(), w2.length()));
+		words.sort((w1, w2) -> w1.length() - w2.length());
 
 		// a lambda expression can be converted to a functional interface 
 		Consumer<String> linePrinter = word -> System.out.println(word);
@@ -34,5 +34,7 @@ public class UsingLambdas {
 		
 		// iteration using lambda (passing the lambda expression directly)  
 		words.forEach(word -> System.out.println(word));
+		
+		new Thread(()-> System.out.println("Executing a Runnable")).start();
 	}
 }
