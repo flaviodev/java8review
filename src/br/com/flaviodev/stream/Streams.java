@@ -3,6 +3,8 @@ package br.com.flaviodev.stream;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 class Course {
 
@@ -68,6 +70,10 @@ public class Streams {
 			.filter(c -> c.getAmountOfStudents() > 90)
 			.mapToInt(c -> c.getAmountOfStudents())
 			.average().ifPresent(System.out::println);
+		
+		// getting list from stream
+		courses = courses.stream().filter(c -> c.getAmountOfStudents() > 90).collect(Collectors.toList());
+		courses.forEach(c -> System.out.println(c.getName()));
 		
 	}
 }
