@@ -13,7 +13,7 @@ public class MethodReferences {
 		words.add("updating");
 		words.add("and");
 		words.add("reviewing");
-		words.add("java");
+		words.add("Java");
 		words.add("knowledge");
 
 		// sorting using lambda
@@ -27,9 +27,10 @@ public class MethodReferences {
 		words.sort(Comparator.comparing(word -> word.length()));
 		
 		// or yet (using method reference / as a short lambda)
-		words.sort(Comparator.comparing(String::length));
+		words.sort(Comparator.comparing(String::toLowerCase));
 		
 		// using System.out.println(s) as  method reference
 		words.forEach(System.out::println);
+		
 	}
 }
