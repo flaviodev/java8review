@@ -17,7 +17,16 @@ public class SortingStrings {
 		words.add("java");
 		words.add("knowledge");
 
-		Comparator<String> comparator = new SizeComparator();
+		Comparator<String> comparator = new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				if (o1.length() < o2.length())
+					return -1;
+				if (o1.length() > o2.length())
+					return 1;
+				return 0;
+			}			
+		};
 
 		// old way for sorting words
 		Collections.sort(words, comparator);
@@ -33,25 +42,13 @@ public class SortingStrings {
 		}
 
 		// iteration using Consumer interface (default method forEach on Iterable)
-		words.forEach(new PrintWord());
+		words.forEach(new Consumer<String>() {
+			@Override
+			public void accept(String word) {
+				System.out.println(word);
+			}
+		});
 	}
 }
 
-class PrintWord implements Consumer<String> {
-	@Override
-	public void accept(String word) {
-		System.out.println(word);
-	}
-}
 
-class SizeComparator implements Comparator<String> {
-	@Override
-	public int compare(String o1, String o2) {
-		if (o1.length() < o2.length())
-			return -1;
-		if (o1.length() > o2.length())
-			return 1;
-		return 0;
-	}
-
-}
