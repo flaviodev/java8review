@@ -5,4 +5,5 @@ Updating and reviewing Java knowledge
 * lambdas expressions
 * method references
 * stream
+* class optional
 * new date api
